@@ -8,40 +8,38 @@ class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
-    get inputUsername () {
-        return $('#user-name');
+    get inputEmail () {
+        return $('[id="login-email"]');
     }
 
     get inputPassword () {
-        return $('#password');
+        return $('[id="current-password"]');
     }
 
-    get btnSubmit () {
-        return $('input[type="submit"]');
+    get btnLogin () {
+        return $('[id="btn-login"]'); 
     }
+
+    get accountBtn () {
+        return $('[class="icon-user"]'); 
+    }
+
 
     /**
      * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
+     * e.g. to login using username and password 
      */
-    async login (username, password) {
-        await this.inputUsername.setValue(username);
+    async login (email, password) {
+        await this.accountBtn.click();
+        await browser.pause(1000)
+        await this.inputEmail.setValue(email);
+        await browser.pause(1000)
         await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
+        await browser.pause(1000)
+        await this.btnLogin.click();
+        await browser.pause(1000)
     }
 
-async incorrectLogin (incorrectUsername, incorrectPassword) {
-    await this.inputUsername.setValue(incorrectUsername);
-    await this.inputPassword.setValue(incorrectPassword);
-    await this.btnSubmit.click();
-}
-
-    /**
-     * overwrite specific options to adapt it to page object
-     */
-    open () {
-        return super.open('login');
-    }
 }
 
 module.exports = new LoginPage();
