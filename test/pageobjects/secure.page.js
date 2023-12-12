@@ -5,7 +5,7 @@ const Page = require('./page');
 class SecurePage extends Page {
   
     get yourAccount () {
-        return $('[class="page-title_title__voXOX"]');
+        return $('[class="orders-page_empty-view__ebBu_"]');
     }
 }
 

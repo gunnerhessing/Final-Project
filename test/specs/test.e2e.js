@@ -7,9 +7,9 @@ describe('logging into gym shark', () => {
     it('Lets you log into gym shark', async () => {
         await LoginPage.open()
 
-        await LoginPage.login('gunner.hessing@yahoo.com', 'B$ur0cks')
+        await LoginPage.login('gunhessing@gmail.com', 'GymShark1passwor?')
         await expect(SecurePage.yourAccount).toBeExisting()
         await expect(SecurePage.yourAccount).toHaveTextContaining(
-            'YOUR GYMSHARK ACCOUNT')
+            'You’ve made no orders')
     })
 })
