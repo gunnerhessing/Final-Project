@@ -9,7 +9,7 @@ class LoginPage extends Page {
      * define selectors using getter methods
      */
     get inputEmail () {
-        return $('[id="login-email"]');
+        return $('[type="email"]');
     }
 
     get inputPassword () {
@@ -31,13 +31,13 @@ class LoginPage extends Page {
      */
     async login (email, password) {
         await this.accountBtn.click();
-        await browser.pause(1000)
+        await browser.pause(2000)
         await this.inputEmail.setValue(email);
-        await browser.pause(1000)
+        await browser.pause(2000)
         await this.inputPassword.setValue(password);
-        await browser.pause(1000)
+        await browser.pause(2000)
         await this.btnLogin.click();
-        await browser.pause(1000)
+        await browser.pause(2000)
     }
 
 }
