@@ -63,6 +63,10 @@ class LoginPage extends Page {
         return $('[data-locator-id="pdp-size-xxl-select"]');
     }
 
+    get xxxlSize () {
+        return $('[data-locator-id="pdp-size-3xl-select"]');
+    }
+
     get addBag () {
         return $('[data-locator-id="pdp-addToBag-submit"]');
     }    
@@ -88,16 +92,32 @@ class LoginPage extends Page {
     }
 
     get nextProduct () {
-        return $('[data-locator-id="plp-productTitle-6805257093322-read"]');
+        return $('[data-locator-id="plp-productTitle-6805200928970-read"]');
     }
 
+    get thirdProduct () {
+        return $('[data-locator-id="plp-productTitle-6805432369354-read"]');
+    }
+
+    get accessoriesHeader () {
+        return $('[id="accessories"]')
+    }
+    
+    get crewSocks () {
+        return $('[data-locator-id="plp-productTitle-6805085159626-read"]')
+    }
+    
+    get womenHeader () {
+        return $('[id="women"]')
+    }
+
+    
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password 
      */
     async login (email, password) {
         await this.accountBtn.click();
-        await this.signupBtn.click();
         await this.loginHeaderBtn.click();
         await this.inputEmail.waitForClickable();
         await this.inputEmail.moveTo();
@@ -106,45 +126,8 @@ class LoginPage extends Page {
         await this.inputPassword.click();
         await this.inputPassword.setValue(password);
         await this.btnLogin.click();
-        await this.btnMen.waitForClickable();
-        await this.btnMen.click();
-        await this.shopBtn.waitForClickable();
-        await this.shopBtn.click();
-        await this.eliteShirt.waitForClickable();
-        await this.eliteShirt.click();
-        await this.xsSize.click();
-        await this.addBag.waitForClickable();
-        await this.addBag.click();
-        await this.closeCart.waitForClickable();
-        await this.closeCart.click();
-        await browser.pause(1000)
-        await this.sSize.waitForClickable();
-        await this.sSize.click();
-        await this.addBag.click();
-        await this.closeCart.waitForClickable();
-        await this.closeCart.click();
-        await this.mSize.waitForClickable();
-        await this.mSize.click();
-        await this.addBag.click();
-        await this.closeCart.waitForClickable();
-        await this.closeCart.click();
-        await this.lSize.waitForClickable();
-        await this.lSize.click();
-        await this.addBag.click();
-        await this.closeCart.waitForClickable();
-        await this.closeCart.click();
-        await this.xlSize.waitForClickable();
-        await this.xlSize.click();
-        await this.addBag.click();
-        await this.closeCart.waitForClickable();
-        await this.closeCart.click();
-        await this.xxlSize.waitForClickable();
-        await this.xxlSize.click();
-        await this.addBag.click();
-        await this.closeCart.waitForClickable();
-        await this.closeCart.click();
-        await this.nextProduct.click();
         await browser.pause(2000)
+
     }
 
     async dismissPopup () {
@@ -154,7 +137,126 @@ class LoginPage extends Page {
             await expect(this.quitPopup).not.toBeExisting()
         }
     }
-}
 
+    async secondItem() {
+        await this.womenHeader.waitForClickable();
+        await this.womenHeader.click();
+        await this.shopBtn.waitForClickable();
+        await this.shopBtn.click();
+        await this.nextProduct.waitForClickable();
+        await this.nextProduct.click();
+        await this.dismissPopup();
+        await this.xsSize.waitForClickable();
+        await this.xsSize.click();
+        await this.dismissPopup();
+        await browser.pause(500)
+        await this.addBag.waitForClickable();
+        await this.addBag.click();
+        await this.dismissPopup();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
+        await browser.pause(500)
+        await this.dismissPopup();
+        await this.sSize.waitForClickable();
+        await this.sSize.click();
+        await browser.pause(500)
+        await this.addBag.waitForClickable();
+        await this.addBag.click();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
+        await browser.pause(500)
+        await this.xlSize.waitForClickable();
+        await this.xlSize.click();
+        await browser.pause(500)
+        await this.addBag.waitForClickable();
+        await this.addBag.click();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
+        await browser.pause(500)
+        await this.xxlSize.waitForClickable();
+        await this.xxlSize.click();
+        await browser.pause(500)
+        await this.addBag.waitForClickable();
+        await this.addBag.click();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
+    }
+    async thirdItem () {
+        await this.btnMen.waitForClickable();
+        await this.btnMen.click();
+        await this.accessoriesHeader.waitForClickable();
+        await this.accessoriesHeader.click();
+        await this.thirdProduct.click();
+        await this.dismissPopup();
+        await this.addBag.waitForClickable();
+        await this.addBag.click();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
+    }
+    async firstItem() {
+        await this.btnMen.waitForClickable();
+        await this.btnMen.click();
+        await this.shopBtn.waitForClickable();
+        await this.shopBtn.click();
+        await this.eliteShirt.waitForClickable();
+        await this.eliteShirt.click();
+        await browser.pause(500)
+        await this.dismissPopup();
+        await this.sSize.moveTo();
+        await this.sSize.waitForClickable();
+        await this.sSize.click();
+        await this.dismissPopup();
+        await this.addBag.waitForClickable();
+        await this.addBag.click();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
+        await browser.pause(500)
+        await this.xlSize.moveTo();
+        await this.xlSize.waitForClickable();
+        await this.xlSize.click();
+        await this.addBag.click();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
+        await browser.pause(500)
+        await this.xxlSize.moveTo();
+        await this.xxlSize.waitForClickable();
+        await this.xxlSize.click();
+        await this.addBag.click();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
+    } 
+    async fourthItem() {
+        await this.accessoriesHeader.waitForClickable();
+        await this.accessoriesHeader.click();
+        await this.crewSocks.click();
+        await browser.pause(500)
+        await this.dismissPopup();
+        await this.sSize.waitForClickable();
+        await this.sSize.click();
+        await browser.pause(500)
+        await this.dismissPopup();
+        await this.addBag.waitForClickable();
+        await this.addBag.click();
+        await this.dismissPopup();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
+        await browser.pause(500)
+        await this.mSize.waitForClickable();
+        await this.mSize.click();
+        await browser.pause(500)
+        await this.addBag.waitForClickable();
+        await this.addBag.click();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
+        await browser.pause(500)
+        await this.lSize.waitForClickable();
+        await this.lSize.click();
+        await browser.pause(500)
+        await this.addBag.waitForClickable();
+        await this.addBag.click();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
+    }
+}
 
 module.exports = new LoginPage();
