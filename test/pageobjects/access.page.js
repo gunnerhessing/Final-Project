@@ -157,14 +157,6 @@ class LoginPage extends Page {
         await this.closeCart.click();
         await browser.pause(500)
         await this.dismissPopup();
-        await this.sSize.waitForClickable();
-        await this.sSize.click();
-        await browser.pause(500)
-        await this.addBag.waitForClickable();
-        await this.addBag.click();
-        await this.closeCart.waitForClickable();
-        await this.closeCart.click();
-        await browser.pause(500)
         await this.xlSize.waitForClickable();
         await this.xlSize.click();
         await browser.pause(500)
