@@ -67,6 +67,10 @@ class LoginPage extends Page {
         return $('[data-locator-id="pdp-size-3xl-select"]');
     }
 
+    allSizes (size) {
+        return $(`[data-locator-id="pdp-size-${size}-select"]`)
+    }
+
     get addBag () {
         return $('[data-locator-id="pdp-addToBag-submit"]');
     }    
@@ -103,20 +107,43 @@ class LoginPage extends Page {
         return $('[id="accessories"]')
     }
     
-    get crewSocks () {
-        return $('[data-locator-id="plp-productTitle-6805085159626-read"]')
+    get sharkBackpack () {
+        return $('[data-locator-id="plp-productTitle-6805429747914-read"]'); 
     }
     
     get womenHeader () {
         return $('[id="women"]')
     }
 
-    
+    get cartBtn () {
+        return $('[class="icon-bag"]')
+    }
+   
+    get removeCart () {
+        return $('[class="icon-delete"]')
+    } 
+
+    get loggingOut () {
+        return $('[data-locator-id="account-logoutButton-select"]')
+    } 
+
+    get gymsharkLogo () {
+        return $('[data-locator-id="header-logo-select"]') 
+    } 
+
+    get overlayCart () {
+        return $('[class="button_icon__3NG7W button_icon--hide__jxmxP"]')
+    }
+
+    get selectedxl () {
+        return $('[class="size_size__zRXlq size_size--selected__d_Onj"]')
+    }
+
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password 
      */
-    async login (email, password) {
+    async loginandlogout (email, password) {
         await this.accountBtn.click();
         await this.loginHeaderBtn.click();
         await this.inputEmail.waitForClickable();
@@ -126,124 +153,137 @@ class LoginPage extends Page {
         await this.inputPassword.click();
         await this.inputPassword.setValue(password);
         await this.btnLogin.click();
-        await browser.pause(2000)
+        await this.loggingOut.click();
 
     }
 
-    async dismissPopup () {
-        if (await this.entirePopup.isExisting()) {
-            await this.quitPopup.moveTo();
-            await this.quitPopup.click();
-            await expect(this.quitPopup).not.toBeExisting()
-        }
-    }
 
     async secondItem() {
+        await browser.setCookies([
+            {name:'__Secure-3PSIDCC',value: 'ABTWhQH5KNLGshr81A5fdgtuh7aZRouH8a8nqJoye6o_x0rvBRXQ1aKiKaStccDiAHFKHj5byK0',},
+            {name:'__Secure-3PSIDTS',value:'sidts-CjIBPVxjSoOgXYhoLZue0vh3-3qqKFT0tuv8kYINuzimRsYuoiRoOphUQoOcZO1wzr8zqxAA'},
+        ]);
+        await browser.refresh()
         await this.womenHeader.waitForClickable();
         await this.womenHeader.click();
         await this.shopBtn.waitForClickable();
         await this.shopBtn.click();
         await this.nextProduct.waitForClickable();
         await this.nextProduct.click();
-        await this.dismissPopup();
         await this.xsSize.waitForClickable();
         await this.xsSize.click();
-        await this.dismissPopup();
-        await browser.pause(500)
         await this.addBag.waitForClickable();
         await this.addBag.click();
-        await this.dismissPopup();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
-        await browser.pause(500)
-        await this.dismissPopup();
+        await this.xlSize.waitForExist();
+        await this.xlSize.waitForClickable();
+        await this.selectedxl.waitForExist();
+        await this.xlSize.click();
         await this.xlSize.waitForClickable();
         await this.xlSize.click();
-        await browser.pause(500)
+        await this.selectedxl.waitForExist();
         await this.addBag.waitForClickable();
+        await this.addBag.moveTo();
         await this.addBag.click();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
-        await browser.pause(500)
         await this.xxlSize.waitForClickable();
         await this.xxlSize.click();
-        await browser.pause(500)
         await this.addBag.waitForClickable();
         await this.addBag.click();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
     }
     async thirdItem () {
+        await browser.setCookies([
+            {name:'__Secure-3PSIDCC',value: 'ABTWhQH5KNLGshr81A5fdgtuh7aZRouH8a8nqJoye6o_x0rvBRXQ1aKiKaStccDiAHFKHj5byK0',},
+            {name:'__Secure-3PSIDTS',value:'sidts-CjIBPVxjSoOgXYhoLZue0vh3-3qqKFT0tuv8kYINuzimRsYuoiRoOphUQoOcZO1wzr8zqxAA'},
+        ]);
+        await browser.refresh()
         await this.btnMen.waitForClickable();
         await this.btnMen.click();
         await this.accessoriesHeader.waitForClickable();
         await this.accessoriesHeader.click();
+        await this.thirdProduct.waitForClickable();
         await this.thirdProduct.click();
-        await this.dismissPopup();
         await this.addBag.waitForClickable();
         await this.addBag.click();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
     }
     async firstItem() {
+          await browser.setCookies([
+            {name:'__Secure-3PSIDCC',value: 'ABTWhQH5KNLGshr81A5fdgtuh7aZRouH8a8nqJoye6o_x0rvBRXQ1aKiKaStccDiAHFKHj5byK0',},
+            {name:'__Secure-3PSIDTS',value:'sidts-CjIBPVxjSoOgXYhoLZue0vh3-3qqKFT0tuv8kYINuzimRsYuoiRoOphUQoOcZO1wzr8zqxAA'},
+        ]);
+        await browser.refresh()
         await this.btnMen.waitForClickable();
         await this.btnMen.click();
         await this.shopBtn.waitForClickable();
         await this.shopBtn.click();
         await this.eliteShirt.waitForClickable();
         await this.eliteShirt.click();
-        await browser.pause(500)
-        await this.dismissPopup();
-        await this.sSize.moveTo();
+        await this.allSizes('xs').moveTo();
         await this.sSize.waitForClickable();
-        await this.sSize.click();
-        await this.dismissPopup();
+        await this.allSizes('xs').click();
         await this.addBag.waitForClickable();
         await this.addBag.click();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
-        await browser.pause(500)
-        await this.xlSize.moveTo();
-        await this.xlSize.waitForClickable();
-        await this.xlSize.click();
+        await this.allSizes('s').moveTo();
+        await this.sSize.waitForClickable();
+        await this.allSizes('s').click();
+        await this.addBag.waitForClickable();
         await this.addBag.click();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
-        await browser.pause(500)
+        await this.allSizes('m').moveTo();
+        await this.sSize.waitForClickable();
+        await this.allSizes('m').click();
+        await this.addBag.waitForClickable();
+        await this.addBag.click();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
+        await this.allSizes('l').moveTo();
+        await this.sSize.waitForClickable();
+        await this.allSizes('l').click();
+        await this.addBag.waitForClickable();
+        await this.addBag.click();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
+        await this.xlSize.moveTo();
+        await this.xlSize.waitForClickable();
+        await this.xlSize.click();
+        await this.addBag.waitForExist();
+        await this.addBag.waitForClickable();
+        await this.addBag.click();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
         await this.xxlSize.moveTo();
         await this.xxlSize.waitForClickable();
-        await this.xxlSize.click();
+        await this.xxlSize.click({x:-10,y:0});
+        await this.addBag.click();
+        await this.closeCart.waitForClickable();
+        await this.closeCart.click();
+        await this.allSizes('3xl').moveTo();
+        await this.sSize.waitForClickable();
+        await this.allSizes('3xl').click();
+        await this.addBag.waitForClickable();
         await this.addBag.click();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
     } 
     async fourthItem() {
+        await browser.setCookies([
+            {name:'__Secure-3PSIDCC',value: 'ABTWhQH5KNLGshr81A5fdgtuh7aZRouH8a8nqJoye6o_x0rvBRXQ1aKiKaStccDiAHFKHj5byK0',},
+            {name:'__Secure-3PSIDTS',value:'sidts-CjIBPVxjSoOgXYhoLZue0vh3-3qqKFT0tuv8kYINuzimRsYuoiRoOphUQoOcZO1wzr8zqxAA'},
+        ]);
+        await browser.refresh()
         await this.accessoriesHeader.waitForClickable();
         await this.accessoriesHeader.click();
-        await this.crewSocks.click();
-        await browser.pause(500)
-        await this.dismissPopup();
-        await this.sSize.waitForClickable();
-        await this.sSize.click();
-        await browser.pause(500)
-        await this.dismissPopup();
-        await this.addBag.waitForClickable();
-        await this.addBag.click();
-        await this.dismissPopup();
-        await this.closeCart.waitForClickable();
-        await this.closeCart.click();
-        await browser.pause(500)
-        await this.mSize.waitForClickable();
-        await this.mSize.click();
-        await browser.pause(500)
-        await this.addBag.waitForClickable();
-        await this.addBag.click();
-        await this.closeCart.waitForClickable();
-        await this.closeCart.click();
-        await browser.pause(500)
-        await this.lSize.waitForClickable();
-        await this.lSize.click();
-        await browser.pause(500)
+        await this.sharkBackpack.click();
+        await this.addBag.waitForExist();
         await this.addBag.waitForClickable();
         await this.addBag.click();
         await this.closeCart.waitForClickable();

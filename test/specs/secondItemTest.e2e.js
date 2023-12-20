@@ -6,7 +6,7 @@ describe ('second product and all sizes', () => {
     it('Lets you put all sizes in the cart of the second item', async () => {
         await LoginPage.open()
 
-        await LoginPage.login('gunhessing@gmail.com', 'GymShark1passwor?')
+        await LoginPage.loginandlogout('gunhessing@gmail.com', 'GymShark1passwor?')
         await LoginPage.secondItem()
 
     })

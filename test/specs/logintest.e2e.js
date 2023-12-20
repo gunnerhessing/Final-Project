@@ -7,6 +7,6 @@ describe('logging into gym shark', () => {
     it('Lets you log into gym shark', async () => {
         await LoginPage.open()
 
-        await LoginPage.login('gunhessing@gmail.com', 'GymShark1passwor?')
+        await LoginPage.loginandlogout('gunhessing@gmail.com', 'GymShark1passwor?')
     })
 })
