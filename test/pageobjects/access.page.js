@@ -158,6 +158,7 @@ class LoginPage extends Page {
     }
 
 
+
     async secondItem() {
         await browser.setCookies([
             {name:'__Secure-3PSIDCC',value: 'ABTWhQH5KNLGshr81A5fdgtuh7aZRouH8a8nqJoye6o_x0rvBRXQ1aKiKaStccDiAHFKHj5byK0',},
@@ -280,6 +281,7 @@ class LoginPage extends Page {
             {name:'__Secure-3PSIDTS',value:'sidts-CjIBPVxjSoOgXYhoLZue0vh3-3qqKFT0tuv8kYINuzimRsYuoiRoOphUQoOcZO1wzr8zqxAA'},
         ]);
         await browser.refresh()
+        await browser.fullscreenWindow()
         await this.accessoriesHeader.waitForClickable();
         await this.accessoriesHeader.click();
         await this.sharkBackpack.click();
