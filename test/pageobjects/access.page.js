@@ -39,34 +39,6 @@ class LoginPage extends Page {
         return $('[class="product-card_product-title__9gis1"]');
     }
 
-    get xsSize () {
-        return $('[data-locator-id="pdp-size-xs-select"]');
-    }
-
-    get sSize () {
-        return $('[data-locator-id="pdp-size-s-select"]');
-    }
-
-    get mSize () {
-        return $('[data-locator-id="pdp-size-m-select"]');
-    }
-
-    get lSize () {
-        return $('[data-locator-id="pdp-size-l-select"]');
-    }
-    
-    get xlSize () {
-        return $('[data-locator-id="pdp-size-xl-select"]');
-    }
-    
-    get xxlSize () {
-        return $('[data-locator-id="pdp-size-xxl-select"]');
-    }
-
-    get xxxlSize () {
-        return $('[data-locator-id="pdp-size-3xl-select"]');
-    }
-
     allSizes (size) {
         return $(`[data-locator-id="pdp-size-${size}-select"]`)
     }
@@ -171,26 +143,26 @@ class LoginPage extends Page {
         await this.shopBtn.click();
         await this.nextProduct.waitForClickable();
         await this.nextProduct.click();
-        await this.xsSize.waitForClickable();
-        await this.xsSize.click();
+        await this.allSizes('xs').waitForClickable();
+        await this.allSizes('xs').click();
         await this.addBag.waitForClickable();
         await this.addBag.click();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
-        await this.xlSize.waitForExist();
-        await this.xlSize.waitForClickable();
+        await this.allSizes('xl').waitForExist();
+        await this.allSizes('xl').waitForClickable();
         await this.selectedxl.waitForExist();
-        await this.xlSize.click();
-        await this.xlSize.waitForClickable();
-        await this.xlSize.click();
+        await this.allSizes('xl').click();
+        await this.allSizes('xl').waitForClickable();
+        await this.allSizes('xl').click();
         await this.selectedxl.waitForExist();
         await this.addBag.waitForClickable();
         await this.addBag.moveTo();
         await this.addBag.click();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
-        await this.xxlSize.waitForClickable();
-        await this.xxlSize.click();
+        await this.allSizes('xxl').waitForClickable();
+        await this.allSizes('xxl').click();
         await this.addBag.waitForClickable();
         await this.addBag.click();
         await this.closeCart.waitForClickable();
@@ -226,49 +198,49 @@ class LoginPage extends Page {
         await this.eliteShirt.waitForClickable();
         await this.eliteShirt.click();
         await this.allSizes('xs').moveTo();
-        await this.sSize.waitForClickable();
+        await this.allSizes('s').waitForClickable();
         await this.allSizes('xs').click();
         await this.addBag.waitForClickable();
         await this.addBag.click();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
         await this.allSizes('s').moveTo();
-        await this.sSize.waitForClickable();
+        await this.allSizes('s').waitForClickable();
         await this.allSizes('s').click();
         await this.addBag.waitForClickable();
         await this.addBag.click();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
         await this.allSizes('m').moveTo();
-        await this.sSize.waitForClickable();
+        await this.allSizes('s').waitForClickable();
         await this.allSizes('m').click();
         await this.addBag.waitForClickable();
         await this.addBag.click();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
         await this.allSizes('l').moveTo();
-        await this.sSize.waitForClickable();
+        await this.allSizes('s').waitForClickable();
         await this.allSizes('l').click();
         await this.addBag.waitForClickable();
         await this.addBag.click();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
-        await this.xlSize.moveTo();
-        await this.xlSize.waitForClickable();
-        await this.xlSize.click();
+        await this.allSizes('xl').moveTo();
+        await this.allSizes('xl').waitForClickable();
+        await this.allSizes('xl').click();
         await this.addBag.waitForExist();
         await this.addBag.waitForClickable();
         await this.addBag.click();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
-        await this.xxlSize.moveTo();
-        await this.xxlSize.waitForClickable();
-        await this.xxlSize.click({x:-10,y:0});
+        await this.allSizes('xxl').moveTo();
+        await this.allSizes('xxl').waitForClickable();
+        await this.allSizes('xxl').click({x:-10,y:0});
         await this.addBag.click();
         await this.closeCart.waitForClickable();
         await this.closeCart.click();
         await this.allSizes('3xl').moveTo();
-        await this.sSize.waitForClickable();
+        await this.allSizes('s').waitForClickable();
         await this.allSizes('3xl').click();
         await this.addBag.waitForClickable();
         await this.addBag.click();
